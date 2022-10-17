@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新増社員</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--
+    新增
+-->
+
+    <style>
+        table{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1 align="center">新増社員情報</h1>
+
+<form th:action="@{/add}" method="get" >
+    <table>
+        <tr>
+            <td>员工号码</td>
+            <td><input type="text" name="empID"></td>
+        </tr>
+        <tr>
+            <td>姓名汉字</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>姓名拼音</td>
+            <td><input type="text" name="namePinyin"></td>
+        </tr>
+        <tr>
+            <td>平假名</td>
+            <td><input type="text" name="hiragana"></td>
+        </tr>
+        <tr>
+            <td>片假名</td>
+            <td><input type="text" name="kaTaGaNa"></td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td><input type="text" name="sex"></td>
+        </tr>
+        <tr>
+            <td>身高</td>
+            <td><input type="text" name="tall"></td>
+        </tr>
+        <tr>
+            <td>体重</td>
+            <td><input type="text" name="weight"></td>
+        </tr>
+        <tr>
+            <td>联系方式</td>
+            <td><input type="text" name="tel"></td>
+        </tr>
+        <tr>
+            <td>在职状态</td>
+            <td><input type="text" name="work"></td>
+        </tr>
+        <tr>
+            <td>黑名单</td>
+            <td><input type="text" name="blacklist"></td>
+        </tr>
+
+    </table>
+    <button class="btn btn-primary btn-lg btn-block">保存</button>
+</form>
+</div>
+</body>
+</html>

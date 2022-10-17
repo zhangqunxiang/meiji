@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>勤務管理システム</title>
+</head>
+<style>
+  .div1{
+      margin-bottom: 100px;
+  }
+
+</style>
+<body>
+
+<h1 align="center"> 勤務管理</h1>
+<div class="div1">
+    <button class="btn btn-lg btn-primary btn-block" th:href="@{/timecard}" >出勤記録</button>
+</div>
+<br>
+<div class="div1">
+    <button class="btn btn-lg  btn-info btn-block">残業履歴</button>
+</div >
+<br>
+<div class="div1">
+    <button class="btn btn-lg btn-success btn-block">休み届出</button>
+</div>
+<br>
+<div class="div1">
+    <button class="btn btn-lg btn-danger btn-block">年休管理</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>社員情報更新</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--
+    信息变更
+-->
+
+    <style>
+        table{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<h1 align="center">社員情報更新</h1>
+<form th:action="@{/update}" method="get">
+    <table th:each="user:${userList}">
+        <tr>
+            <td>员工号码</td>
+            <td><input type="text" name="empID" th:value="${user.empID}"></td>
+        </tr>
+        <tr>
+            <td>姓名汉字</td>
+            <td><input type="text" name="name" th:value="${user.name}"></td>
+        </tr>
+        <tr>
+            <td>姓名拼音</td>
+            <td><input type="text" name="namePinyin" th:value="${user.namePinyin}"></td>
+        </tr>
+        <tr>
+            <td>平假名</td>
+            <td><input type="text" name="hiragana" th:value="${user.hiragana}"></td>
+        </tr>
+        <tr>
+            <td>片假名</td>
+            <td><input type="text" name="kaTaGaNa" th:value="${user.kaTaGaNa}"></td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td><input type="text" name="sex" th:value="${user.sex}"></td>
+        </tr>
+        <tr>
+            <td>身高</td>
+            <td><input type="text" name="tall" th:value="${user.tall}"></td>
+        </tr>
+        <tr>
+            <td>体重</td>
+            <td><input type="text" name="weight" th:value="${user.weight}"></td>
+        </tr>
+        <tr>
+            <td>联系方式</td>
+            <td><input type="text" name="tel" th:value="${user.tel}"></td>
+        </tr>
+        <tr>
+            <td>在职状态</td>
+            <td><input type="text" name="work" th:value="${user.work}"></td>
+        </tr>
+        <tr>
+            <td>黑名单</td>
+            <td><input type="text" name="blacklist" th:value="${user.blacklist}"></td>
+        </tr>
+    </table>
+    <button class="btn btn-primary btn-lg btn-block">更新</button>
+</form>
+</body>
+</html>

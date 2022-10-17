@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>社員情報詳細一覧</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!--
+   详情
+-->
+    <style>
+        table{
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+<h1 align="center">社員情報詳細一覧</h1>
+<form th:action="@{/index}" method="get">
+    <table th:each="user:${userList}">
+        <tr>
+            <td>员工号码</td>
+            <td><input type="text" th:value="${user.empID}" readonly></td>
+        </tr>
+        <tr>
+            <td>姓名汉字</td>
+            <td><input type="text" th:value="${user.name}" readonly></td>
+        </tr>
+        <tr>
+            <td>姓名拼音</td>
+            <td><input type="text" th:value="${user.namePinyin}" readonly></td>
+        </tr>
+        <tr>
+            <td>平假名</td>
+            <td><input type="text" th:value="${user.hiragana}" readonly></td>
+        </tr>
+        <tr>
+            <td>片假名</td>
+            <td><input type="text" th:value="${user.kaTaGaNa}" readonly></td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td><input type="text" th:value="${user.sex}" readonly></td>
+        </tr>
+        <tr>
+            <td>身高</td>
+            <td><input type="text" th:value="${user.tall}" readonly></td>
+        </tr>
+        <tr>
+            <td>体重</td>
+            <td><input type="text" th:value="${user.weight}" readonly></td>
+        </tr>
+        <tr>
+            <td>联系方式</td>
+            <td><input type="text" th:value="${user.tel}" readonly></td>
+        </tr>
+        <tr>
+            <td>在职状态</td>
+            <td><input type="text" th:value="${user.work}" readonly></td>
+        </tr>
+        <tr>
+            <td>黑名单</td>
+            <td><input type="text" th:value="${user.blacklist}" readonly></td>
+        </tr>
+    </table>
+    <button class="btn btn-lg btn-primary btn-block">戻る</button>
+</form>
+</body>
+</html>

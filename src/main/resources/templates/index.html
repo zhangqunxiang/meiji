@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>欢迎使用员工管理系统</title>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<a th:href="@{/logout}" style="float: right" class="btn btn-success">ログアウト</a>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h3>softuisng株式会社<span th:text="${session.userInfo}" /></h3>
+            </div>
+        </div>
+        <div class="col-md-12 column">
+            <div class="page-header">
+                <h3 align="center">社員管理システム</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 column" >
+                <a style="display: inline"  class="btn btn-primary" th:href="@{add/add}">新規登録</a>
+            </div>
+            <div class="col-md-4 column" ></div>
+            <div class="col-md-4 column">
+                <form th:action="@{/find}" method="get" style="float: right" class="form-inline">
+                    <input type="text" name="empID" class="form-control" placeholder="社員番号を入力">
+                    <input type="submit" value="查询" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+<table border="2" cellpadding="2" cellspacing="0" width="1500px" height="50px">
+    <thead>
+    <tr>
+        <th>员工号码</th>
+        <th>姓名汉字</th>
+        <th>性别</th>
+        <th>联系方式</th>
+        <th>在职状态</th>
+        <th>黑名单</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user:${userList}" th:styleappend="${user.blacklist == '是'}?'background-color:pink'">
+        <td th:text="${user.empID}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.sex}"></td>
+        <td th:text="${user.tel}"></td>
+        <td th:text="${user.work}"></td>
+        <td th:text="${user.blacklist}"></td>
+        <td >
+            <a class=" btn btn-primary"  th:href="@{/details(empID=${user.empID})   }">详情  | </a>
+            <a class=" btn btn-info " th:href="@{/update(empID=${user.empID})}">编辑   | </a>
+            <a class=" btn btn-warning" th:href="@{/quit(empID=${user.empID})}">离职  | </a>
+            <a class=" btn btn-success" th:href="@{/blacklist(empID=${user.empID})}">黑名单  | </a>
+            <a class="btn  btn-danger" th:href="@{/delete(empID=${user.empID})}">删除  | </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</body>
+</html>
